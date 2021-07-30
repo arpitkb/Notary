@@ -36,15 +36,34 @@ function loadBook(filename, displayName) {
         })
 }
 
-const bookLinks = document.querySelectorAll('#bookLink');
-for (bookL of bookLinks) {
-    bookL.addEventListener('click', function (evt) {
-        evt.preventDefault();
-        const url = evt.target.getAttribute("href");
-        const name = url.split('txt')[0];
-        loadBook(url, name.substring(8, name.length - 1));
-    })
+
+function getLink() {
+    const lis = document.querySelectorAll('li');
+    for (let i = 0; i < lis.length; i++) {
+        lis[i].addEventListener('click', function (evt) {
+            // evt.preventDefault();
+            const url = lis[i].firstChild.getAttribute("href");
+            const name = url.split('txt')[0];
+            loadBook(url, name.substring(8, name.length - 1));
+        })
+    }
 }
+
+function stopLinks() {
+    const bookLinks = document.querySelectorAll("#bookLink");
+    for (bl of bookLinks) {
+        bl.addEventListener('click', function (evt) {
+            evt.preventDefault();
+        })
+    }
+}
+
+stopLinks();
+getLink();
+
+
+
+
 
 
 function appendli(src, stat) {
@@ -55,8 +74,9 @@ function appendli(src, stat) {
 
 function isOk(string) {
     const noise = new Set()
-    noise.add("the"); noise.add("of"); noise.add("to"); noise.add("was"); noise.add("my"); noise.add("&"); noise.add("be"); noise.add("that"); noise.add("have"); noise.add("for"); noise.add("not"); noise.add("he"); noise.add("she"); noise.add("her"); noise.add("him"); noise.add("you"); noise.add("me"); noise.add("well"); noise.add("how"); noise.add("its"); noise.add("than"); noise.add("then"); noise.add("some"); noise.add("me"); noise.add("a"); noise.add("with"); noise.add("go"); noise.add("get"); noise.add("just"); noise.add("an");
+    noise.add("the"); noise.add("and"); noise.add("said"); noise.add("of"); noise.add("to"); noise.add("was"); noise.add("my"); noise.add("&"); noise.add("be"); noise.add("that"); noise.add("have"); noise.add("for"); noise.add("not"); noise.add("he"); noise.add("she"); noise.add("her"); noise.add("him"); noise.add("you"); noise.add("me"); noise.add("well"); noise.add("how"); noise.add("its"); noise.add("than"); noise.add("then"); noise.add("some"); noise.add("me"); noise.add("a"); noise.add("with"); noise.add("go"); noise.add("get"); noise.add("just"); noise.add("an");
     noise.add("but"); noise.add("as"); noise.add("like"); noise.add("there"); noise.add("any"); noise.add("those"); noise.add("had"); noise.add("they"); noise.add("very"); noise.add("your"); noise.add("were"); noise.add("for"); noise.add("else"); noise.add("his"); noise.add("for"); noise.add("it"); noise.add("in"); noise.add("at"); noise.add("on"); noise.add("i"); noise.add("you"); noise.add("am"); noise.add("will"); noise.add("is"); noise.add("are"); noise.add("this"); noise.add("that"); noise.add("we")
+    noise.add("-"); noise.add(""); noise.add("--"); noise.add(" ");
     if (noise.has(string))
         return false;
     return true;
