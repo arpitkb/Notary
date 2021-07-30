@@ -70,7 +70,7 @@ li{
     transition: background-color 0.08s ease-in-out;
 }
 
-li:hover{
+.select-book li:hover{
     background-color: rgba(142, 187, 226, 0.459);
    
 }
