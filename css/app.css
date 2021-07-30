@@ -18,21 +18,31 @@ body{
     background: linear-gradient(90deg, rgba(2,0,36,0.7738445720084909) 0%, rgba(9,9,121,0.7598389697675946) 32%, rgba(157,0,255,0.6169818269104517) 100%);
 }
 
+
 .container .logo img{
-    max-width: 60%;
+    max-width: 50%;
     padding-left: 5rem;
-    height: auto;
+    margin: 3rem 0;
+    position: relative;
+}
+
+.badge{
+    position: relative;
+    font-size: 100%;
+    font-weight: 100;
+    font-family :'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
 }
 
 .displayBox{
     width: 100%;
     font-family: 'Courier New', Courier, monospace;
     white-space: pre-wrap;
+    font-size: 13.5px;
 }
 
 .scroll-box{
     overflow-y: auto;
-    height: 447.5px;
+    height: 500px;
     float: left;
     padding: 1rem 1rem;
 }
@@ -46,9 +56,43 @@ body{
     text-transform: uppercase;
 }
 
-#bookLink:hover{
-    color: black;
+#bookLink ,#bookLink:hover , #bookLink:focus , #bookLink:active{
     text-decoration: none;
+    color: inherit;
+    /* color: black;
     border-left: 2px solid black;
-    padding-left: 0.2rem;
+    padding-left: 0.2rem; */
+}
+
+li{
+    padding: 0 0.5rem;
+    border-radius: 2rem;
+    transition: background-color 0.08s ease-in-out;
+}
+
+li:hover{
+    background-color: rgba(142, 187, 226, 0.459);
+   
+}
+
+.select-book{
+    font: normal 100 14px/29px monospace;
+
+}
+
+#mostUsedWords{
+    color: rgb(35, 78, 172);
+    font-weight: 800;
+}
+#leastUsedWords{
+    color: rgb(35, 78, 172);
+    font-weight: 800;
+}
+#documentStats{
+    color: rgb(207, 83, 61);
+    font-weight: 800;
+}
+
+.main-book{
+    margin-bottom: 3rem;
 }
